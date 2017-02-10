@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>simplebuild mock example</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/app.css"/>
+		<style>
+input, button, pre {font-size: 2rem;}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="url-input"/> <button id="go">执行</button>
+		<hr>
+		<pre id="code"></pre>
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+		<script>
+$(function(){
+	$('#go').click(function(){
+		var input = $('#url-input');
+		var url = input.val().trim();
+		if(!url) { return; }
+		$.get(url).done(function(data, _, xhr){
+			$('#code').html(xhr.responseText);
+		}).fail(function(){}).complete(function(){
+			input.val('');
+		});
+	});
+});
+		</script>
+	</body>
+</html>

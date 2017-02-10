@@ -1,0 +1,7 @@
+{
+	"status": true,
+	"user|10-20": [{
+		"id|1-100": 1,
+		"username": "@cword(3,5)"
+	}]
+}

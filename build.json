@@ -1,0 +1,39 @@
+{
+	"server": {
+		"host": "0.0.0.0",
+		"port": 8080
+	},
+	"development": {
+		"backend": "./ajax",
+		"urlmaps": {
+			"/": "./views/index.html",
+			"/mock": "./views/mock.html",
+			"/static": "./src"
+		},
+		"dynamic_assets": [{
+			"url": "/static/js/all.js",
+			"input": ["src/js/app.js", "src/js/1.js", "src/js/2.js", "src/js/3.js"],
+			"output": "src/js/all.js",
+			"output_minify": "dist/js/all-min.js"
+		}, {
+			"url": "/static/js/all.js",
+			"es6": true,
+			"input": "src/js/es6/main.js",
+			"output": "src/js/es6/all.js",
+			"output_minify": "dist/js/es6/all-min.js"
+		}, {
+			"input": "./views/index.html",
+			"output_minify": "./views/index.min.html"
+		}, {
+			"input": "src/css/app.css",
+			"output_minify": "dist/css/app.min.css"
+		}]
+	},
+	"production": {
+		"backend": "10.2.81.136:8081",
+		"urlmaps": {
+			"/": "./views/index.html",
+			"/static": "./dist"
+		}
+	}
+}
